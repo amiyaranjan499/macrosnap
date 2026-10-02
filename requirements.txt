@@ -1,0 +1,5 @@
+google-genai
+streamlit
+twilio
+pillow
+python-telegram-bot
