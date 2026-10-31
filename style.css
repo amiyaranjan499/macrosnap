@@ -1,0 +1,407 @@
+/* ============================================================
+   MacroSnap — Clean Light Theme (Centered Card)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ── Design tokens ─────────────────────────────────────────── */
+:root {
+    --brand:         #22c55e;
+    --brand-dark:    #16a34a;
+    --brand-glow:    rgba(34,197,94,0.15);
+    --brand-border:  rgba(34,197,94,0.30);
+
+    --bg-page:       #ffffff;
+
+    --card-bg:       #ffffff;
+    --card-border:   #e2f0e5;
+    --card-shadow:   0 20px 60px rgba(0,0,0,0.08), 0 4px 16px rgba(34,197,94,0.06);
+
+    --surface:       #f4faf5;
+    --surface-2:     #edf7ef;
+
+    --border:        #ddeee0;
+    --border-focus:  #22c55e;
+
+    --text-h:        #0f3d20;
+    --text-body:     #1e3a28;
+    --text-label:    #2d6a41;
+    --text-muted:    #7a9a84;
+    --text-placeholder: #b0ccb8;
+
+    --r-sm: 10px;
+    --r-md: 16px;
+    --r-lg: 22px;
+    --r-xl: 28px;
+
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+    --shadow-md: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* ── Global reset / font ────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body, [class*="st-"] {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+}
+
+/* ── Full-page background ────────────────────────────────────── */
+.stApp {
+    background: #ffffff !important;
+    color: var(--text-body) !important;
+    min-height: 100vh;
+}
+
+header[data-testid="stHeader"] {
+    background: #ffffff !important;
+    border-bottom: 1px solid var(--card-border) !important;
+    box-shadow: none !important;
+}
+
+/* ── Page container as floating card ─────────────────────────── */
+.block-container {
+    max-width: 500px !important;
+    width: 100% !important;
+    margin: clamp(16px, 4vh, 48px) auto !important;
+    padding: 2rem 2rem 6rem !important;
+
+    background: var(--card-bg) !important;
+    border: 1px solid var(--card-border) !important;
+    border-radius: var(--r-xl) !important;
+    box-shadow: var(--card-shadow) !important;
+}
+
+/* ── Headings ───────────────────────────────────────────────── */
+h1 {
+    font-size: 1.65rem !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.7px !important;
+    color: var(--text-h) !important;
+    margin-bottom: 0.05rem !important;
+    padding-top: 0 !important;
+    line-height: 1.2 !important;
+}
+
+h2, h3 {
+    color: var(--text-h) !important;
+    font-weight: 700 !important;
+}
+
+/* ── Captions ───────────────────────────────────────────────── */
+div[data-testid="stCaptionContainer"] p {
+    color: var(--text-muted) !important;
+    font-size: 0.80rem !important;
+    margin-top: 2px !important;
+}
+
+/* ── General paragraph / markdown text ──────────────────────── */
+p, .stMarkdown p {
+    color: var(--text-body) !important;
+}
+
+/* ── Hero banner ─────────────────────────────────────────────── */
+.macrosnap-banner {
+    width: 100%;
+    margin: 10px 0 14px;
+    padding: 18px 18px 16px;
+    text-align: center;
+
+    background: linear-gradient(145deg, #f0fdf4 0%, #dcfce7 60%, #fefce8 100%);
+    border: 1.5px solid #bbf7d0;
+    border-radius: var(--r-md);
+    box-shadow: 0 2px 12px rgba(34,197,94,0.08);
+
+    position: relative;
+    overflow: hidden;
+}
+
+.macrosnap-banner::after {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(34,197,94,0.12), transparent 70%);
+    pointer-events: none;
+}
+
+.macrosnap-banner .food-icons {
+    font-size: 22px;
+    letter-spacing: 5px;
+    margin-bottom: 7px;
+}
+
+.macrosnap-banner h3 {
+    color: var(--brand-dark) !important;
+    font-size: 0.97rem !important;
+    font-weight: 700 !important;
+    margin: 2px 0 6px !important;
+}
+
+.macrosnap-banner p {
+    color: #4a7a5a !important;
+    font-size: 0.76rem !important;
+    line-height: 1.5 !important;
+    margin: 0 auto !important;
+    max-width: 300px;
+}
+
+/* ── Radio / channel selector ────────────────────────────────── */
+div[data-testid="stRadio"] {
+    margin-top: 2px !important;
+    margin-bottom: 4px !important;
+}
+
+div[data-testid="stRadio"] > label p,
+div[data-testid="stRadio"] > label {
+    color: var(--text-label) !important;
+    font-size: 0.82rem !important;
+    font-weight: 600 !important;
+}
+
+div[data-testid="stRadio"] label span {
+    color: var(--text-body) !important;
+    font-size: 0.82rem !important;
+}
+
+div[data-testid="stRadio"] input[type="radio"] {
+    accent-color: var(--brand) !important;
+}
+
+/* ── Form card ───────────────────────────────────────────────── */
+div[data-testid="stForm"] {
+    background: var(--surface) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--r-md) !important;
+    padding: 18px 18px 14px !important;
+    margin-top: 6px !important;
+    box-shadow: var(--shadow-sm) !important;
+}
+
+/* ── Field labels ─────────────────────────────────────────────── */
+div[data-testid="stTextInput"] label,
+div[data-testid="stTextInput"] label p {
+    font-size: 0.78rem !important;
+    font-weight: 600 !important;
+    color: var(--text-label) !important;
+    letter-spacing: 0.2px !important;
+    margin-bottom: 4px !important;
+}
+
+div[data-testid="stTextInput"] {
+    margin-bottom: 10px !important;
+}
+
+/* ── Input fields ─────────────────────────────────────────────── */
+div[data-testid="stTextInput"] input {
+    height: 40px !important;
+    min-height: 40px !important;
+    padding: 6px 12px !important;
+
+    background: #ffffff !important;
+    color: var(--text-body) !important;
+    font-size: 0.85rem !important;
+    font-weight: 400 !important;
+
+    border: 1.5px solid var(--border) !important;
+    border-radius: var(--r-sm) !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04) !important;
+    transition: border-color 0.2s, box-shadow 0.2s !important;
+}
+
+div[data-testid="stTextInput"] input::placeholder {
+    color: var(--text-placeholder) !important;
+    font-size: 0.82rem !important;
+}
+
+div[data-testid="stTextInput"] input:focus {
+    border-color: var(--brand) !important;
+    box-shadow: 0 0 0 3px var(--brand-glow), 0 1px 3px rgba(0,0,0,0.04) !important;
+    outline: none !important;
+}
+
+/* ── Submit button ───────────────────────────────────────────── */
+div[data-testid="stFormSubmitButton"] {
+    display: flex !important;
+    justify-content: flex-end !important;
+    margin-top: 4px !important;
+}
+
+div[data-testid="stFormSubmitButton"] button {
+    height: 40px !important;
+    padding: 0 24px !important;
+
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: var(--r-sm) !important;
+
+    font-size: 0.84rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.2px !important;
+
+    box-shadow: 0 4px 14px rgba(34,197,94,0.35) !important;
+    transition: box-shadow 0.2s, transform 0.15s !important;
+    transform: translateY(0) !important;
+}
+
+div[data-testid="stFormSubmitButton"] button p {
+    color: #ffffff !important;
+    font-size: 0.84rem !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
+}
+
+div[data-testid="stFormSubmitButton"] button:hover {
+    box-shadow: 0 6px 20px rgba(34,197,94,0.50) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* ── "Send to X" header button ───────────────────────────────── */
+div[data-testid="stButton"] > button {
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: var(--r-sm) !important;
+    font-size: 0.76rem !important;
+    font-weight: 700 !important;
+    padding: 6px 14px !important;
+    box-shadow: 0 4px 12px rgba(34,197,94,0.28) !important;
+    transition: box-shadow 0.2s, transform 0.15s !important;
+}
+
+div[data-testid="stButton"] > button p {
+    color: #ffffff !important;
+    font-size: 0.76rem !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
+}
+
+div[data-testid="stButton"] > button:hover {
+    box-shadow: 0 6px 18px rgba(34,197,94,0.45) !important;
+    transform: translateY(-1px) !important;
+}
+
+div[data-testid="stButton"] > button:disabled {
+    background: #f0f5f1 !important;
+    color: #a0b8a8 !important;
+    box-shadow: none !important;
+    transform: none !important;
+    border: 1px solid #ddeee0 !important;
+}
+
+div[data-testid="stButton"] > button:disabled p {
+    color: #a0b8a8 !important;
+}
+
+/* ── Chat messages ───────────────────────────────────────────── */
+div[data-testid="stChatMessage"] {
+    background: var(--surface) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--r-md) !important;
+    padding: 12px 14px !important;
+    margin-bottom: 10px !important;
+    box-shadow: var(--shadow-sm) !important;
+}
+
+div[data-testid="stChatMessage"] p,
+div[data-testid="stChatMessage"] .stMarkdown p {
+    color: var(--text-body) !important;
+    font-size: 0.875rem !important;
+    line-height: 1.65 !important;
+}
+
+/* ── Chat input bar ──────────────────────────────────────────── */
+div[data-testid="stChatInput"] {
+    background: #ffffff !important;
+    border: 1.5px solid var(--border) !important;
+    border-radius: var(--r-md) !important;
+    box-shadow: 0 4px 18px rgba(34,197,94,0.08) !important;
+    transition: border-color 0.2s, box-shadow 0.2s !important;
+}
+
+div[data-testid="stChatInput"]:focus-within {
+    border-color: var(--brand) !important;
+    box-shadow: 0 0 0 3px var(--brand-glow), 0 4px 18px rgba(34,197,94,0.10) !important;
+}
+
+div[data-testid="stChatInput"] textarea {
+    background: transparent !important;
+    color: var(--text-body) !important;
+    font-size: 0.875rem !important;
+}
+
+div[data-testid="stChatInput"] textarea::placeholder {
+    color: var(--text-placeholder) !important;
+}
+
+div[data-testid="stChatInput"] button {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: var(--brand) !important;
+}
+
+div[data-testid="stChatInput"] button:hover {
+    background: transparent !important;
+    box-shadow: none !important;
+    opacity: 0.75 !important;
+}
+
+/* ── Meal images ─────────────────────────────────────────────── */
+div[data-testid="stImage"] img {
+    border-radius: var(--r-md) !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: var(--shadow-md) !important;
+    width: 100% !important;
+    max-height: 280px !important;
+    object-fit: cover !important;
+}
+
+/* ── Expander ─────────────────────────────────────────────────── */
+details[data-testid="stExpander"] {
+    background: var(--surface) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--r-sm) !important;
+    padding: 2px 10px !important;
+}
+
+details[data-testid="stExpander"] summary,
+details[data-testid="stExpander"] summary p {
+    color: var(--text-muted) !important;
+    font-size: 0.78rem !important;
+    font-weight: 500 !important;
+}
+
+details[data-testid="stExpander"] p {
+    color: var(--text-body) !important;
+    font-size: 0.80rem !important;
+}
+
+/* ── Alerts ───────────────────────────────────────────────────── */
+div[data-testid="stAlert"] {
+    border-radius: var(--r-sm) !important;
+    font-size: 0.82rem !important;
+}
+
+/* ── HR ───────────────────────────────────────────────────────── */
+hr { border-color: var(--border) !important; }
+
+/* ── Scrollbar ────────────────────────────────────────────────── */
+::-webkit-scrollbar              { width: 5px; }
+::-webkit-scrollbar-track        { background: transparent; }
+::-webkit-scrollbar-thumb        { background: #c6e2cc; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover  { background: #86efac; }
+
+/* ── Mobile ───────────────────────────────────────────────────── */
+@media (max-width: 560px) {
+    .block-container {
+        max-width: 100% !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+        border-left: none !important;
+        border-right: none !important;
+        padding: 1.5rem 1rem 6rem !important;
+        box-shadow: none !important;
+    }
+}

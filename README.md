@@ -137,7 +137,6 @@ Notes:
 | Setting | Where | Description |
 |---|---|---|
 | `MODEL_NAME` | `app.py` | Gemini model used for analysis |
-| `max_output_tokens` | `app.py` | Caps reply length (default 500) for faster answers |
 | `max_side` | `shrink_image()` in `app.py` | Max photo size in pixels before upload (default 768) |
 | Prompts | `prompts.py` | System prompt, welcome message and summary prompt |
 
@@ -158,4 +157,3 @@ Notes:
 - Nutrition values are AI estimates and are not medical or dietary advice.
 - The Gemini free tier has a small daily request limit. Each photo, message and summary request counts as one request.
 - WhatsApp template variables cannot contain line breaks, so the summary is sent as a single paragraph.
-
